@@ -2,9 +2,9 @@
 
 @login
 Funcionalidade: Login
-    Para acessar a aplicação Orange
-    O usuário
-    Quer logar
+    Para acessar a aplicação OrangeHRM
+    Como usuário
+    Devo estar logado corretamente
 
 @login_sucesso
 Cenario: Login com sucesso

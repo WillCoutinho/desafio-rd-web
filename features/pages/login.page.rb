@@ -2,19 +2,19 @@
 
 # PO do Login
 class LoginPage < SitePrism::Page
-  element :email, 'input[name="username"]'
-  element :password, 'input[name="password"]'
-  element :btn_login, 'button[type="submit"]'
-  element :titulo_login, '.h5'
-  @titulo_login = 'Login'
+  set_url ''
+  element :usernameField, 'input[name="username"]'
+  element :passwordField, 'input[name="password"]'
+  element :login_button, 'button[type="submit"]'
+  @login_title = 'login'
 
-  def logar_usuario
-    email.set 'Admin'
-    password.set 'admin123'
-    btn_login.click
+  def user_login(username:, password:)
+    usernameField.set(username)
+    passwordField.set(password)
+    login_button.click
   end
 
-  def validar_pagina_login
-    assert_title(@titulo_login)
+  def check_login_page
+    assert_title(@login_title)
   end
 end
