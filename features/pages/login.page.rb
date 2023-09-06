@@ -6,15 +6,20 @@ class Login < SitePrism::Page
   element :usernameField, 'input[name="username"]'
   element :passwordField, 'input[name="password"]'
   element :login_button, 'button[type="submit"]'
-  @login_title = 'login'
+  element :drop_down_menu, '.oxd-userdropdown-tab'
 
-  def user_login(username:, password:)
-    usernameField.set(username)
-    passwordField.set(password)
+  def user_valid_login
+    usernameField.set(CREDENTIAL[:valid_user][:username])
+    passwordField.set(CREDENTIAL[:valid_user][:password])
     login_button.click
   end
 
   def check_login_page
-    assert_title(@login_title)
+    assert_title('OrangeHRM')
+  end
+
+  def logout
+    find('.oxd-userdropdown-tab').click
+    click_link(href: '/web/index.php/auth/logout')
   end
 end

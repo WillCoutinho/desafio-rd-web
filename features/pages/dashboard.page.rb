@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# PO do Dashboard
 class Dashboard < SitePrism::Page
   element :header_dashboard, 'h6'
   @dashboard_title = 'OrangeHRM'
