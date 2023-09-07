@@ -7,6 +7,12 @@ class Admin < SitePrism::Page
   element :username_field, '.oxd-input.oxd-input:nth-child(1)'
   element :delete_button, :xpath, '//button[normalize-space()="Delete Selected"]'
   element :confirm_delete_button, :xpath, '//button[normalize-space()="Yes, Delete"]'
+  element :username_new_user, :xpath, "//*[text()='Username']/../..//input"
+  element :employee_name_field, :xpath, "//*[text()='Employee Name']/../..//input"
+  element :status_dropdown, :xpath, "//*[text()='Status']/../../div/div/."
+  element :password_field, :xpath, "//*[text()='Password']/../..//input"
+  element :confirm_password_field, :xpath, "//*[text()='Confirm Password']/../..//input"
+
 
   def access_admin_tab
     click_link(href: '/web/index.php/admin/viewAdminModule')
@@ -20,29 +26,29 @@ class Admin < SitePrism::Page
     select_role
     select_status
     choose_employee_name
-    find(:xpath, "//*[text()='Username']/../..//input").set(CREDENTIAL[:new_user][:username])
+    username_new_user.set(CREDENTIAL[:new_user][:username])
     fill_passwords_fields
     click_button 'Save'
   end
 
   def select_role
-    find(:xpath, "//*[text()='User Role']/../../div/div/.").click
+    user_role_button.click
     find('div[role="listbox"]', :text => 'Admin').click
   end
 
   def choose_employee_name
-    find(:xpath, "//*[text()='Employee Name']/../..//input").set(CREDENTIAL[:new_user][:employee_name][0])
+    employee_name_field.set(CREDENTIAL[:new_user][:employee_name][0])
     find('div[role="listbox"]', :text => CREDENTIAL[:new_user][:employee_name]).click
   end
 
   def select_status
-    find(:xpath, "//*[text()='Status']/../../div/div/.").click
+    status_dropdown.click
     find('div[role="listbox"]', :text => 'Enabled').click
   end
 
   def fill_passwords_fields
-    find(:xpath, "//*[text()='Password']/../..//input").set(CREDENTIAL[:new_user][:password])
-    find(:xpath, "//*[text()='Confirm Password']/../..//input").set(CREDENTIAL[:new_user][:password])
+    password_field.set(CREDENTIAL[:new_user][:password])
+    confirm_password_field.set(CREDENTIAL[:new_user][:password])
   end
 
   def assert_user_created
