@@ -12,5 +12,5 @@ World(Page)
 Capybara.configure do |config|
   config.default_driver = :selenium_chrome
   config.app_host = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
-  config.default_max_wait_time = 8
+  config.default_max_wait_time = 10
 end

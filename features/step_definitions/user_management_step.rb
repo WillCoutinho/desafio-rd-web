@@ -9,12 +9,13 @@ Quando('ele acessar a opção de adicionar') do
 end
 
 Quando('preencher os dados do novo admin') do
-  admin.select_role
-  sleep(5)
+  admin.create_new_user
 end
 
 Entao('um novo admin será cadastrado') do
-  # Write code here that turns the phrase above into concrete actions
+  admin.assert_user_created
+  admin.fill_username_and_search(CREDENTIAL[:new_user][:username])
+  admin.check_search_result
 end
 
 
@@ -23,7 +24,8 @@ Dado('que o admin quer buscar um usuário') do
 end
 
 Quando('ele buscar um nome existente') do
-  admin.fill_username_and_search
+  admin.fill_username_and_search(CREDENTIAL[:new_user][:username])
+  admin.check_search_result
 end
 
 Entao('o usuário será retornado') do
@@ -36,10 +38,11 @@ Dado('que o admin quer deletar um usuário') do
 end
 
 Quando('selecionar o usuário para exclusão') do
-  admin.fill_username_and_search
+  admin.select_and_delete_user
+  admin.assert_popup_message
+  admin.confirm_delete
 end
 
-
 Entao('o usuário deverá ser excluído') do
-  admin.check_search_result
+  admin.check_delete
 end

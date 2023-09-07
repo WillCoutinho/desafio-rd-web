@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# PO do Login
 class Login < SitePrism::Page
   set_url ''
   element :usernameField, 'input[name="username"]'

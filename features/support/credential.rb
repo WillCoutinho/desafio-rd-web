@@ -5,8 +5,9 @@ CREDENTIAL = {
     username: 'Admin',
     password: 'admin123'
   },
-  invalid_user: {
-    username: 'testeQa',
-    password: 'desafio-rd'
+  new_user: {
+    employee_name: 'Linda Jane Anderson',
+    username: 'testeqa',
+    password: 'desafio-rd@123'
   }
 }

@@ -1,3 +1,4 @@
 default: --format pretty --publish-quiet
-report: --format html --out=features_report.html --publish
 login: --tags @login --format html --out=features_report.html --publish
+user_management: --tags @user_management --format html --out=features_report.html --publish
+e2e: --format html --out=features_report.html --publish

@@ -39,6 +39,8 @@ GEM
     cucumber-tag-expressions (4.1.0)
     diff-lcs (1.5.0)
     ffi (1.15.5)
+    launchy (2.5.2)
+      addressable (~> 2.8)
     matrix (0.4.2)
     mini_mime (1.1.5)
     multi_test (1.1.0)
@@ -86,6 +88,7 @@ PLATFORMS
 DEPENDENCIES
   capybara (~> 3.39, >= 3.39.2)
   cucumber (~> 9.0, >= 9.0.1)
+  launchy (~> 2.4, >= 2.4.3)
   rspec (~> 3.12)
   selenium-webdriver (~> 4.12)
   site_prism (~> 4.0, >= 4.0.3)
