@@ -18,7 +18,7 @@ class Login < SitePrism::Page
   end
 
   def logout
-    find('.oxd-userdropdown-tab').click
+    drop_down_menu.click
     click_link(href: '/web/index.php/auth/logout')
   end
 end
